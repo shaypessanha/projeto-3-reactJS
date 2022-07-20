@@ -6,37 +6,30 @@ import { FiTrash2, FiPlus } from 'react-icons/fi'
 import image from '../../../assets/comentarios-2black.svg'
 import './comentarios.css'
 
-import axios from 'axios'
-
 const commentsBaseURL = 'https://fd-basic-comments-api.herokuapp.com/comments';
 
 function Comentarios() {
-  
-  const getWebList = () => {
-    let commentsList = [];
-    axios
-      .get(commentsBaseURL)
-      .then( (resp) => { setList(resp.data.data); } );
-    return commentsList;
+  const getLocalList = () => {
+    let items = localStorage.getItem('list')
+    if(items) {
+      return JSON.parse(localStorage.getItem('list'))
+    } else {
+      return []
+    }
   }
-    // useEffect(() => {
-    //   axios
-    //     .get(commentsBaseURL)
-    //     .then((response) => setList(response.data))
-    // }, [])
-  const [list, setList] = useState(getWebList)
-  
-  const [newAuthor, setNewAuthor] = useState('')
+  const [list, setList] = useState(getLocalList)
   const [newItem, setNewItem] = useState('')
+  const [newAuthor, setNewAuthor] = useState('')
 
   function handleCreateNewItem() {
-    console.log('item add');
     const item = {
-      // id: Math.random(),
-      comment: newItem
+      id: Math.random(),
+      title: newItem,
+      author: newAuthor,
+      date: new Date(Date.now()).toLocaleString('pt-br')
     }
 
-    if (item.title === '') {
+    if (item.title === '' || item.author === '') {
       return
     }
 
@@ -52,6 +45,7 @@ function Comentarios() {
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(list))
   }, [list])
+
 
   return(
   <>
@@ -100,7 +94,7 @@ function Comentarios() {
                       <h5>{item.author}</h5>
                       <h6>{item.date}</h6>
                     </div>
-                    <p>{item.comment}</p>
+                    <p>{item.comment||item.title}</p>
                   </div>
                   <button 
                     className="remove-task" 

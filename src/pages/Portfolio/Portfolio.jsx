@@ -25,8 +25,8 @@ const list = [
   },
   {
     id: 3,
-    nome: 'Rick And Morty',
-    descricao: 'Um site em react para demonstrar e buscar personagens de Ricky and Morty',
+    nome: 'Game of Thrones - Personagens',
+    descricao: 'Um site em react para demonstrar e buscar personagens de Game of Thrones',
     conteudo: 'React: fundamentos, components, hooks, eventos e consumos de API.',
     imagem: 'https://media.giphy.com/media/fB9TNMAGEPmq3Z1Iye/giphy.gif',
     link: 'https://rickandmortytiktok.netlify.app/'
@@ -70,9 +70,9 @@ function Portfolio() {
                   <h1>{projeto.nome}</h1>
                   <img src={projeto.imagem} alt={"gif do projeto " + projeto.nome} />
                   <p>{projeto.descricao}</p>
-                  <a href={projeto.link} className="enter-repo" target="_blank">
+                  <div href={projeto.link} className="enter-repo" target="_blank">
                     <BsArrowReturnRight size={16} color="#111" />
-                  </a>
+                  </div>
                 </a>
               </div>
             )
@@ -87,9 +87,9 @@ function Portfolio() {
               <a className="repo-card clickable-card-base" key={repo.id} href={repo.html_url} target="_blank">
                 <h3>{repo.name}</h3>
                 <p>{(repo.description||repo.language||('Fork: '+repo.fork))}</p>
-                <a href={repo.html_url} target="_blank" className="enter-repo" >
+                <div href={repo.html_url} target="_blank" className="enter-repo" >
                   <BsArrowReturnRight size={16} color="#fff" />
-                </a>
+                </div>
               </a>
             )
           })

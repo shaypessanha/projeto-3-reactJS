@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import { BsArrowReturnRight } from 'react-icons/bs'
 import Header from '../../components/Header/Header'
-import image from '../../assets/image-header.svg'
+import headerImage from '../../assets/image-header.svg'
+import meu_diario from '../../assets/meu-diario.gif'
+import to_do_list from '../../assets/to-do-list.gif'
+import github_search from '../../assets/github-search.gif'
+import portifolio from '../../assets/portifolio.gif'
 import axios from 'axios'
 
 import './portfolio.css'
@@ -9,10 +13,10 @@ import './portfolio.css'
 const list = [
   {
     id: 1,
-    nome: 'Quero ser dev',
+    nome: 'Meu diário {reprograma}',
     descricao: 'Um site com conteúdos de introdução à programação.',
     conteudo: 'React, listas e components',
-    imagem: 'https://media.giphy.com/media/NpKOhpooYL1Rr7Uuav/giphy.gif',
+    imagem: meu_diario,
     link: 'https://meu-diario-shaypessanha.netlify.app'
   },
   {
@@ -20,24 +24,24 @@ const list = [
     nome: 'TODO list',
     descricao: 'App To-do list em Javascript e HTML',
     conteudo: 'JS, DOM e HTML5',
-    imagem: 'https://media.giphy.com/media/OUxAsqI6AeAGqMQhFz/giphy.gif',
+    imagem: to_do_list,
     link: 'https://to-do-list-shaypessanha.netlify.app/'
   },
   {
     id: 3,
-    nome: 'Game of Thrones - Personagens',
-    descricao: 'Um site em react para demonstrar e buscar personagens de Game of Thrones',
-    conteudo: 'React: fundamentos, components, hooks, eventos e consumos de API.',
-    imagem: 'https://media.giphy.com/media/fB9TNMAGEPmq3Z1Iye/giphy.gif',
-    link: 'https://rickandmortytiktok.netlify.app/'
+    nome: 'Github Search',
+    descricao: 'Um site que permite busca de perfis no Github',
+    conteudo: 'JavaScript, HTML5, CSS3',
+    imagem: github_search,
+    link: 'https://github-search-shaypessanha.netlify.app/'
   },
   {
     id: 4,
     nome: 'Meu Portfolio',
     descricao: 'Um site em react para demonstrar meu portfolio',
     conteudo: 'React: fundamentos, components, rotas, hooks, eventos e consumos de API.',
-    imagem: 'https://media.giphy.com/media/RaT2tOOlt1WPIb7sGA/giphy.gif',
-    link: 'https://portfolio-aula-react.netlify.app/'
+    imagem: portifolio,
+    link: 'https://github-search-shaypessanha.netlify.app/'
   }
 ]
 
@@ -54,7 +58,7 @@ function Portfolio() {
   return (
     <>
       <Header
-        image={image}
+        image={headerImage}
         description="ilustracao mulher com site"
       >
         Meus Projetos

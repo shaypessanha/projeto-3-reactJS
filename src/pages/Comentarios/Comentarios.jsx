@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header/Header'
 import { FiTrash2, FiPlus } from 'react-icons/fi'
 
-import image from '../../assets/image-header.svg'
+import image from '../../../assets/comentarios-2black.svg'
 import './comentarios.css'
+
+const commentsBaseURL = 'https://fd-basic-comments-api.herokuapp.com/comments';
 
 function Comentarios() {
   const getLocalList = () => {
@@ -17,14 +19,17 @@ function Comentarios() {
   }
   const [list, setList] = useState(getLocalList)
   const [newItem, setNewItem] = useState('')
+  const [newAuthor, setNewAuthor] = useState('')
 
   function handleCreateNewItem() {
     const item = {
       id: Math.random(),
-      title: newItem
+      title: newItem,
+      author: newAuthor,
+      date: new Date(Date.now()).toLocaleString('pt-br')
     }
 
-    if (item.title === '') {
+    if (item.title === '' || item.author === '') {
       return
     }
 
@@ -41,6 +46,7 @@ function Comentarios() {
     localStorage.setItem('list', JSON.stringify(list))
   }, [list])
 
+
   return(
   <>
     <Header 
@@ -54,7 +60,13 @@ function Comentarios() {
         <div className="input-container">
           <input 
             type="text"
-            placeholder="Digite aqui"
+            placeholder="Seu nome"
+            onChange={(e) => setNewAuthor(e.target.value)}
+            value={newAuthor}
+          />
+          <input 
+            type="text"
+            placeholder="Digite aqui seu comentário"
             onChange={(e) => setNewItem(e.target.value)}
             value={newItem}
           />
@@ -71,12 +83,18 @@ function Comentarios() {
       </header>
       <main>
         <ul className="list-items">
+          {console.log("list")}
+          {console.log(list)}
           {
             list.map(item => {
               return(
                 <li key={item.id}>
                   <div>
-                    <p>{item.title}</p>
+                    <div>
+                      <h5>{item.author}</h5>
+                      <h6>{item.date}</h6>
+                    </div>
+                    <p>{item.comment||item.title}</p>
                   </div>
                   <button 
                     className="remove-task" 

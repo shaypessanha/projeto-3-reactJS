@@ -41,7 +41,7 @@ const list = [
     descricao: 'Um site em react para demonstrar meu portfolio',
     conteudo: 'React: fundamentos, components, rotas, hooks, eventos e consumos de API.',
     imagem: portifolio,
-    link: 'https://github-search-shaypessanha.netlify.app/'
+    link: 'https://portifolio-shaypessanha.netlify.app/'
   }
 ]
 

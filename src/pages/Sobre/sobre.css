@@ -1,0 +1,31 @@
+.sobre-page {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-div {
+    display: flex;
+    place-items: center;
+    max-width: 60ch;
+    text-align: start;
+    gap: 32px;
+    margin: 32px auto;
+}
+
+.intro-div > h2 {
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.intro-div > p {
+    font-size: 1rem;
+}
+
+.intro-div > img {
+    border-radius: 5000px;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    /* aspect-ratio: 2 / 2; */
+}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Sobre from '../pages/Sobre/Sobre'
 import Portfolio from '../pages/Portfolio/Portfolio'
 import Comentarios from '../pages/Comentarios/Comentarios'
@@ -15,6 +15,7 @@ function ApplicationRoutes() {
                 <Route path="Portfolio" element={<Portfolio />} />
                 <Route path="Comentarios" element={<Comentarios />} />
                 <Route path="Sobre" element={<Sobre />} />
+                <Route path="*" element={<Navigate to="Sobre" replace />} />
             </Routes>
             <Footer>
                 

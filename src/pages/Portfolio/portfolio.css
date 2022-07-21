@@ -11,6 +11,11 @@
   justify-content: center;
 }
 
+.cartao-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .cartao-wrapper > * {
   text-decoration: none;
   color: inherit;
@@ -22,8 +27,8 @@
   flex: 1 0 auto;
   align-content: center;
   flex-grow: 0;
-  width: 500px;
-  max-height: 75%;
+  /* width: 500px; */
+  /* max-height: 75%; */
 }
 
 .cartao {
@@ -112,4 +117,10 @@
 .clickable-card-base {
   text-decoration: none;
   color: inherit;
+}
+
+@media (max-width: 800px) {
+  .cartao-container {
+      grid-template-columns: 1fr;
+  }
 }
